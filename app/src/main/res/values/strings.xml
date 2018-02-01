@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Payment Solutions</string>
+    <string name="content_description">logo</string>
+    <string name="login_facebook">Login with facebook</string>
+    <string name="login_email">Login with email</string>
+    <string name="agree_terms">By signing up i accept the&#160;<u>terms and conditions</u></string>
+    <string name="new_account">Create a new account ?</string>
+    <string name="sign_up">Signup</string>
+    <string name="name">Name or username</string>
+    <string name="email">Email Address</string>
+    <string name="mobile">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="repeat">Repeat Password</string>
+    <string name="register">Register</string>
+    <string name="add_photo">Add\nphoto</string>
+    <string name="navigation_drawer_open">Opened</string>
+    <string name="navigation_drawer_close">Closed</string>
+    <string name="amount">amount</string>
+    <string name="action_bar">Your Balance\n<b>120,000,000.23</b> EGP</string>
+    <string name="send_money">How much do you want to send?</string>
+    <string name="button100"><b>+100</b>&#160;L.E</string>
+    <string name="button150"><b>+150</b>&#160;L.E</string>
+    <string name="button200"><b>+200</b>&#160;L.E</string>
+    <string name="button500"><b>+500</b>&#160;L.E</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+<string-array name="currencies">
+    <item>EGP</item>
+    <item>LMP</item>
+    <item>SMP</item>
+</string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
+

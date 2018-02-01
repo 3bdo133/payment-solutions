@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:animateLayoutChanges="true"
+    tools:ignore="MissingPrefix"
+    tools:context="com.paymentsolutions.paymentsolutions.RegisterActivity"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/progress_indicator"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:animateLayoutChanges="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/parent_layout"
+            android:animateLayoutChanges="true"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/content_description"
+                android:src="@drawable/circle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22.5dp"
+                fontPath="fonts/OpenSans-Regular.ttf"
+                android:gravity="center"
+                android:text="@string/add_photo"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/photo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:gravity="center"
+                fontPath="fonts/OpenSans-Regular.ttf"
+                android:hint="@string/name"
+                android:inputType="text"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                fontPath="fonts/OpenSans-Regular.ttf"
+                android:background="@drawable/edit_text"
+                android:gravity="center"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <EditText
+                android:id="@+id/mobile"
+                android:layout_width="270dp"
+                android:maxLength="11"
+                fontPath="fonts/OpenSans-Regular.ttf"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:gravity="center"
+                android:hint="@string/mobile"
+                android:inputType="phone"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mobile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                fontPath="fonts/OpenSans-Regular.ttf"
+                android:background="@drawable/edit_text"
+                android:gravity="center"
+                android:hint="Address"
+                android:inputType="textPostalAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:gravity="center"
+                fontPath="fonts/OpenSans-Regular.ttf"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <Button
+                android:id="@+id/sign_up"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:layout_below="@id/password"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/my_button6"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="@string/register"
+                android:textAllCaps="false"
+                fontPath="fonts/OpenSans-Bold.ttf"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

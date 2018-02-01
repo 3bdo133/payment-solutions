@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context="com.paymentsolutions.paymentsolutions.ComplaintActivity"
+    tools:ignore="MissingPrefix">
+
+    <ProgressBar
+        android:id="@+id/progress_indicator"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:visibility="invisible" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/custom2">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/custom" />
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:id="@+id/parent_layout"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:animateLayoutChanges="true"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true">
+
+                        <ImageView
+                            android:id="@+id/photo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="@string/content_description"
+                            android:padding="1dp"
+                            android:src="@drawable/circle" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="22.5dp"
+                            android:gravity="center"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:text="@string/add_photo"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                    <Spinner
+                        android:id="@+id/spinner1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/spinner"
+                        android:gravity="center"
+                        android:spinnerMode="dialog" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:id="@+id/name"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text2"
+                        android:hint="Name"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:inputType="textPersonName"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="6dp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text2"
+                        android:hint="Quantity"
+                        android:id="@+id/quantity"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:inputType="number"
+                        android:paddingBottom="6dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:background="@drawable/edit_text2"
+                            android:hint="Price"
+                            android:id="@+id/price"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:inputType="number"
+                            android:paddingBottom="6dp"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            android:paddingTop="6dp" />
+
+                        <Spinner
+                            android:id="@+id/spinner2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="0.3"
+                            android:paddingLeft="9dp"
+                            android:paddingStart="9dp"
+                            android:paddingRight="9dp"
+                            android:paddingEnd="9dp"
+                            android:background="@drawable/spinner2"
+                            android:gravity="center"
+                            android:spinnerMode="dialog" />
+
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text2"
+                        android:gravity="top"
+                        android:id="@+id/description"
+                        android:hint="Description"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:inputType="text"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/reminder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:theme="@style/Color1SwitchStyle" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:id="@+id/state"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:text="Available"
+                            android:textColor="@android:color/holo_green_light" />
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/my_button4"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:text="Add Product"
+                        android:id="@+id/add_product"
+                        fontPath="fonts/OpenSans-Bold.ttf"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+</FrameLayout>

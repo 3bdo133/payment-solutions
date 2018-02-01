@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:ignore="MissingPrefix"
+    android:animateLayoutChanges="true"
+    tools:context="com.paymentsolutions.paymentsolutions.SendingMoneyActivity">
+
+
+    <ProgressBar
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/progress_indicator"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/parent_layout"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:animateLayoutChanges="true"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/custom2">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/custom" />
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        fontPath="fonts/OpenSans-Bold.ttf"
+                        android:text="@string/send_money"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/edit_text2"
+                        android:drawableLeft="@drawable/ic_send_black_24dp"
+                        android:drawableStart="@drawable/ic_send_black_24dp"
+                        android:drawableTint="@color/colorPrimary"
+                        android:gravity="center"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:hint="@string/amount"
+                        android:inputType="number"
+                        android:paddingBottom="2.5dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="2.5dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:id="@+id/button100"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/button100"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:background="@drawable/my_button4"
+                            android:foreground="?attr/selectableItemBackground"
+
+                            android:textColor="@android:color/white" />
+
+                        <Button
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="0dp"
+                            android:id="@+id/button150"
+                            android:text="@string/button150"
+                            android:layout_height="wrap_content"
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:layout_weight="1"
+                            android:background="@drawable/my_button4"
+                            android:foreground="?attr/selectableItemBackground"
+
+                            android:textColor="@android:color/white" />
+
+                        <Button
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="0dp"
+                            android:id="@+id/button200"
+                            android:text="@string/button200"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/my_button4"
+                            android:foreground="?attr/selectableItemBackground"
+
+                            android:textColor="@android:color/white" />
+
+                        <Button
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="0dp"
+                            android:id="@+id/button500"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="@string/button500"
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/my_button4"
+                            android:foreground="?attr/selectableItemBackground"
+
+                            android:textColor="@android:color/white" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="20dp">
+
+                        <EditText
+                            android:id="@+id/send_to"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/edit_text2"
+                            android:gravity="center"
+                            android:hint="send to"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:inputType="phone"
+                            android:maxLength="11"
+                            android:paddingBottom="2.5dp"
+                            android:paddingTop="2.5dp" />
+
+                        <ImageView
+                            android:id="@+id/phone_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/content_description"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:visibility="gone" />
+
+                        <ProgressBar
+                            android:id="@+id/send_progress"
+                            android:layout_width="42dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:visibility="invisible" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:background="@drawable/edit_text2"
+                        android:gravity="center"
+                        android:hint="SMS to receiver"
+                        android:paddingBottom="2.5dp"
+                        android:paddingTop="2.5dp" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        fontPath="fonts/OpenSans-Bold.ttf"
+                        android:text="How do you want to pay?"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/visa" />
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/visa" />
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/visa" />
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:src="@drawable/visa" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                app:cardCornerRadius="5dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/send_money"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/my_button4"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:text="send money"
+                        android:textAllCaps="false"
+                        fontPath="fonts/OpenSans-Bold.ttf"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
