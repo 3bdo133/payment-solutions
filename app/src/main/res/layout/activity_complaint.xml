@@ -61,7 +61,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         fontPath="fonts/OpenSans-Bold.ttf"
-                        android:text="Please write your issue"
+                        android:text="@string/write_issue"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -74,6 +74,7 @@
                         android:layout_marginTop="20dp"
                         android:background="@drawable/edit_text2"
                         android:gravity="center"
+                        android:inputType="text"
                         android:paddingBottom="2.5dp"
                         android:paddingTop="2.5dp" />
 
@@ -89,7 +90,7 @@
                         android:background="@drawable/my_button4"
                         android:foreground="?attr/selectableItemBackground"
                         android:padding="5dp"
-                        android:text="Upload Image"
+                        android:text="@string/upload_image"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white" />
 
@@ -106,7 +107,7 @@
                 fontPath="fonts/OpenSans-Bold.ttf"
                 android:background="@drawable/my_button4"
                 android:foreground="?attr/selectableItemBackground"
-                android:text="Submit"
+                android:text="@string/submit"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"

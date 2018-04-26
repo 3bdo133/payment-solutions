@@ -1,31 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.paymentsolutions.paymentsolutions">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".FirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="locale|orientation|screenSize" />
+        <activity
+            android:name=".RegisterActivity"
+            android:configChanges="locale|orientation|screenSize" />
         <activity
             android:name=".HomeActivity"
+            android:configChanges="locale|orientation|screenSize"
             android:launchMode="singleTop" />
         <activity
             android:name=".SendingMoneyActivity"
+            android:configChanges="locale|orientation|screenSize"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -33,6 +56,8 @@
         </activity>
         <activity
             android:name=".StoresActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:launchMode="singleTop"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -40,6 +65,7 @@
         </activity>
         <activity
             android:name=".ComplaintActivity"
+            android:configChanges="locale|orientation|screenSize"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -47,12 +73,163 @@
         </activity>
         <activity
             android:name=".SupportActivity"
+            android:configChanges="locale|orientation|screenSize"
             android:parentActivityName=".HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />
         </activity>
-        <activity android:name=".AddProductActivity" android:parentActivityName=".HomeActivity">
+        <activity
+            android:name=".AddProductActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+        <activity
+            android:name=".MobilesActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:parentActivityName=".StoresActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StoresActivity" />
+        </activity>
+        <activity
+            android:name=".MyProfileActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ProductActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:parentActivityName=".MobilesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MobilesActivity" />
+        </activity>
+        <activity
+            android:name=".InvoicesActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:parentActivityName=".InvoicesHistoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".InvoicesHistoryActivity" />
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CardActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity
+            android:name=".InvoicesHistoryActivity"
+            android:launchMode="singleTop"
+            android:configChanges="locale|orientation|screenSize"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".AddCustomerActivity" android:configChanges="locale|orientation|screenSize"/>
+        <activity
+            android:name=".ShowInvoiceActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:parentActivityName=".InvoicesHistoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".InvoicesHistoryActivity" />
+        </activity>
+        <activity
+            android:name=".VendorProductsActivity"
+            android:configChanges="locale|orientation|screenSize"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".ControlPanelActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".AddCurrentClientActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".MyCustomersActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyCustomersActivity" />
+        </activity>
+        <activity android:name=".ProductSalesActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".ChargeYourAccountActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".AddBankAccountActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".WithdrawActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".WithdrawsHistoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".WithdrawsHistoryActivity" />
+        </activity>
+        <activity android:name=".AddNewCustomerActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".MyCustomersActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyCustomersActivity" />
+        </activity>
+        <activity android:name=".MyCustomersActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".MyTransfersActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".ChargesListActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity android:name=".WithdrawsHistoryActivity" android:configChanges="locale|orientation|screenSize" android:parentActivityName=".HomeActivity" android:launchMode="singleTop">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity" />

@@ -52,26 +52,27 @@
                 android:checked="true"
                 android:textSize="20sp"
                 fontPath="fonts/OpenSans-Regular.ttf"
-                android:text="Categories"
+                android:text="@string/categories"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                android:textOff="Categories"
-                android:textOn="Categories" />
+                android:textOff="@string/categories"
+                android:textOn="@string/categories" />
 
             <ToggleButton
                 android:id="@+id/all_stores_toggle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:textSize="20sp"
                 fontPath="fonts/OpenSans-Regular.ttf"
                 android:layout_weight="1"
                 android:background="@drawable/my_button5"
-                android:text="All Stores"
+                android:text="@string/all_stores"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
-                android:textOff="All Stores"
-                android:textOn="All Stores" />
+                android:textOff="@string/all_stores"
+                android:textOn="@string/all_stores" />
         </LinearLayout>
 
         <FrameLayout

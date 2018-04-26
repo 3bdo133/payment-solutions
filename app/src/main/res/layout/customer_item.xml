@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_gravity="center"
+    tools:ignore="MissingPrefix"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@android:color/white">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/white"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/customer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wael Abdelrahman"
+                fontPath="fonts/OpenSans-Bold.ttf"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/close_icon"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_close_black_24dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:src="@drawable/ic_edit_black_24dp"
+                android:layout_toLeftOf="@id/close_icon"
+                android:layout_toStartOf="@id/close_icon"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customer_name"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="0.2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/phone"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/email_only"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/phone"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_height="wrap_content"
+                        android:text="01144352682"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/email"
+                        android:text="abdelrahmanh542@gmail.com"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

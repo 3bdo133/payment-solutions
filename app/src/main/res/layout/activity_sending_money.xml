@@ -78,7 +78,6 @@
                         android:background="@drawable/edit_text2"
                         android:drawableLeft="@drawable/ic_send_black_24dp"
                         android:drawableStart="@drawable/ic_send_black_24dp"
-                        android:drawableTint="@color/colorPrimary"
                         android:gravity="center"
                         fontPath="fonts/OpenSans-Regular.ttf"
                         android:hint="@string/amount"
@@ -98,6 +97,7 @@
 
                         <Button
                             android:layout_width="0dp"
+                            style="?android:attr/buttonBarButtonStyle"
                             android:id="@+id/button100"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="5dp"
@@ -170,7 +170,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/edit_text2"
                             android:gravity="center"
-                            android:hint="send to"
+                            android:hint="@string/send_to"
                             fontPath="fonts/OpenSans-Regular.ttf"
                             android:inputType="phone"
                             android:maxLength="11"
@@ -207,7 +207,7 @@
                         fontPath="fonts/OpenSans-Regular.ttf"
                         android:background="@drawable/edit_text2"
                         android:gravity="center"
-                        android:hint="SMS to receiver"
+                        android:hint="@string/sms"
                         android:paddingBottom="2.5dp"
                         android:paddingTop="2.5dp" />
 
@@ -234,7 +234,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         fontPath="fonts/OpenSans-Bold.ttf"
-                        android:text="How do you want to pay?"
+                        android:text="@string/paying"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -247,24 +247,28 @@
 
                         <ImageView
                             android:layout_width="60dp"
+                            android:contentDescription="@string/content_description"
                             android:layout_height="60dp"
                             android:foreground="?attr/selectableItemBackground"
                             android:src="@drawable/visa" />
 
                         <ImageView
                             android:layout_width="60dp"
+                            android:contentDescription="@string/content_description"
                             android:layout_height="60dp"
                             android:foreground="?attr/selectableItemBackground"
                             android:src="@drawable/visa" />
 
                         <ImageView
                             android:layout_width="60dp"
+                            android:contentDescription="@string/content_description"
                             android:layout_height="60dp"
                             android:foreground="?attr/selectableItemBackground"
                             android:src="@drawable/visa" />
 
                         <ImageView
                             android:layout_width="60dp"
+                            android:contentDescription="@string/content_description"
                             android:layout_height="60dp"
                             android:foreground="?attr/selectableItemBackground"
                             android:src="@drawable/visa" />
@@ -295,7 +299,7 @@
                         android:layout_marginStart="5dp"
                         android:background="@drawable/my_button4"
                         android:foreground="?attr/selectableItemBackground"
-                        android:text="send money"
+                        android:text="@string/send_money_button"
                         android:textAllCaps="false"
                         fontPath="fonts/OpenSans-Bold.ttf"
                         android:textColor="@android:color/white"

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="MissingPrefix">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/content_description"
+                    android:src="@drawable/ic_close_black_24dp" />
+
+                <TextView
+                    android:id="@+id/product_name"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Itemitemitemitem"
+                    android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="20dp"
+                    android:contentDescription="@string/content_description"
+                    android:src="@drawable/visa" />
+
+                <LinearLayout
+                    android:id="@+id/quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/product_name"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toLeftOf="@id/product_image"
+                    android:layout_toStartOf="@id/product_image"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <Button
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/my_button_card"
+                        android:text="-"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/product_quantity"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/my_text_card"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/my_button_card"
+                        android:text="+"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center"
+                        android:text="@string/quantity"
+                        android:textColor="@android:color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/submit"
+                    android:layout_alignLeft="@id/submit"
+                    android:layout_alignStart="@id/submit"
+                    android:layout_below="@id/quantity"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_price"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/product_price"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/rs"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+
+</RelativeLayout>

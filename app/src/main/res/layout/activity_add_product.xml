@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
+    android:background="#F5F5F5"
     tools:context="com.paymentsolutions.paymentsolutions.ComplaintActivity"
     tools:ignore="MissingPrefix">
 
@@ -38,8 +39,8 @@
             </android.support.design.widget.AppBarLayout>
 
             <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
                 android:id="@+id/parent_layout"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:background="#FFFFFF"
@@ -68,12 +69,13 @@
                             android:src="@drawable/circle" />
 
                         <TextView
+                            fontPath="fonts/OpenSans-Regular.ttf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="22.5dp"
                             android:gravity="center"
-                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:id="@+id/add_photo_text"
                             android:text="@string/add_photo"
                             android:textSize="20sp" />
                     </RelativeLayout>
@@ -90,15 +92,15 @@
                         android:spinnerMode="dialog" />
 
                     <EditText
+                        android:id="@+id/name"
+                        fontPath="fonts/OpenSans-Regular.ttf"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
-                        android:id="@+id/name"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/edit_text2"
-                        android:hint="Name"
-                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:hint="@string/product_name"
                         android:inputType="textPersonName"
                         android:paddingBottom="6dp"
                         android:paddingLeft="15dp"
@@ -106,15 +108,15 @@
                         android:paddingTop="6dp" />
 
                     <EditText
+                        android:id="@+id/quantity"
+                        fontPath="fonts/OpenSans-Regular.ttf"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/edit_text2"
-                        android:hint="Quantity"
-                        android:id="@+id/quantity"
-                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:hint="@string/product_quantity"
                         android:inputType="number"
                         android:paddingBottom="6dp"
                         android:paddingLeft="15dp"
@@ -131,13 +133,13 @@
                         android:orientation="horizontal">
 
                         <EditText
+                            android:id="@+id/price"
+                            fontPath="fonts/OpenSans-Regular.ttf"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.7"
                             android:background="@drawable/edit_text2"
-                            android:hint="Price"
-                            android:id="@+id/price"
-                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:hint="@string/product_price"
                             android:inputType="number"
                             android:paddingBottom="6dp"
                             android:paddingLeft="15dp"
@@ -151,18 +153,20 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginStart="10dp"
                             android:layout_weight="0.3"
-                            android:paddingLeft="9dp"
-                            android:paddingStart="9dp"
-                            android:paddingRight="9dp"
-                            android:paddingEnd="9dp"
                             android:background="@drawable/spinner2"
                             android:gravity="center"
+                            android:paddingEnd="9dp"
+                            android:paddingLeft="9dp"
+                            android:paddingRight="9dp"
+                            android:paddingStart="9dp"
                             android:spinnerMode="dialog" />
 
 
                     </LinearLayout>
 
                     <EditText
+                        android:id="@+id/description"
+                        fontPath="fonts/OpenSans-Regular.ttf"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:layout_marginLeft="15dp"
@@ -170,9 +174,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/edit_text2"
                         android:gravity="top"
-                        android:id="@+id/description"
-                        android:hint="Description"
-                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:hint="@string/product_description"
                         android:inputType="text"
                         android:paddingBottom="8dp"
                         android:paddingLeft="15dp"
@@ -195,26 +197,26 @@
                             android:theme="@style/Color1SwitchStyle" />
 
                         <TextView
+                            android:id="@+id/state"
+                            fontPath="fonts/OpenSans-Regular.ttf"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:id="@+id/state"
-                            fontPath="fonts/OpenSans-Regular.ttf"
-                            android:text="Available"
+                            android:text="@string/product_available"
                             android:textColor="@android:color/holo_green_light" />
                     </LinearLayout>
 
                     <Button
+                        android:id="@+id/add_product"
+                        fontPath="fonts/OpenSans-Bold.ttf"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="15dp"
                         android:background="@drawable/my_button4"
                         android:foreground="?attr/selectableItemBackground"
-                        android:text="Add Product"
-                        android:id="@+id/add_product"
-                        fontPath="fonts/OpenSans-Bold.ttf"
+                        android:text="@string/add_product"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"

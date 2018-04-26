@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:descendantFocusability="beforeDescendants"
+    android:fillViewport="true"
+    android:focusableInTouchMode="true"
+    tools:context="com.paymentsolutions.paymentsolutions.ShowInvoiceActivity"
+    tools:ignore="MissingPrefix">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="#F5F5F5"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+
+
+        <ProgressBar
+            android:id="@+id/progress_indicator"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/custom2">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/custom" />
+        </android.support.design.widget.AppBarLayout>
+
+
+        <LinearLayout
+            android:id="@+id/parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/app_bar"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/invoice"
+                        android:textColor="#9E9E9E"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:text="@string/invoice_number"
+                        android:id="@+id/invoice_id"
+                        android:textColor="#464E7A"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/invoice"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/due_30_days"
+                        android:textAlignment="center"
+                        android:textColor="#9E9E9E"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/invoice_date"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date"
+                        android:textAlignment="center"
+                        android:textColor="#464E7A"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_texte"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/phone_state"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:contentDescription="@string/content_description"
+                            android:src="@drawable/profile" />
+
+                        <ProgressBar
+                            android:id="@+id/send_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:visibility="invisible" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/shop"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/shop_or_customer"
+                            android:singleLine="true"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit ="marquee_forever"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:scrollHorizontally="true"
+                            android:textColor="#464E7A"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/email_cus"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:singleLine="true"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit ="marquee_forever"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:scrollHorizontally="true"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/email_customer"
+                            android:textColor="#9E9E9E"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="0.07"
+                    android:layout_height="match_parent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_texte"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/phone_state_vendor"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:contentDescription="@string/content_description"
+                            android:src="@drawable/profile" />
+
+                        <ProgressBar
+                            android:id="@+id/send_progress_vendor"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:visibility="invisible" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/shop_vendor"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vendor"
+                            android:singleLine="true"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit ="marquee_forever"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:scrollHorizontally="true"
+                            android:textColor="#464E7A"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/email_cus_vendor"
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit ="marquee_forever"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:scrollHorizontally="true"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/email_customer"
+                            android:textColor="#9E9E9E"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/invoices"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/sub-total"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/sub_total"
+                    android:textColor="#464E7A"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/sub-total_num"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sub_total_num"
+                    android:textColor="#35b7f5"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tax"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/tax"
+                    android:textColor="#464E7A"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tax_num"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tax_num"
+                    android:textColor="#35b7f5"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/total"
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/total"
+                    android:textColor="#464E7A"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/total_num"
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_num"
+                    android:textColor="#35b7f5"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/paid"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/paid"
+                    android:textColor="#464E7A"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/paid_num"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/paid_num"
+                    android:textColor="#35b7f5"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:background="#35b7f5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/balance"
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/balance_due"
+                    android:textColor="#464E7A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/balance_num"
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/paid_num"
+                    android:textColor="#464E7A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/save_button"
+                fontPath="fonts/OpenSans-Bold.ttf"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/my_button4"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="@string/pay_now"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</ScrollView>

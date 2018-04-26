@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5"
+    tools:ignore="MissingPrefix">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F5F5F5"
+        tools:ignore="MissingPrefix">
+
+
+        <ProgressBar
+            android:id="@+id/progress_indicator"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:background="#F5F5F5"
+            android:orientation="vertical">
+
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/custom2">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/custom" />
+            </android.support.design.widget.AppBarLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/name"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="0.8"
+                    android:background="@drawable/edit_text2"
+                    android:gravity="center"
+                    android:hint="@string/product_number"
+                    android:inputType="text"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="6dp"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:contentDescription="@string/content_description"
+                    android:src="@drawable/ic_search_black_24dp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                fontPath="fonts/OpenSans-Bold.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/sales_statistics"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/items"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:layout_gravity="center"
+    tools:ignore="MissingPrefix"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@android:color/white"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/invoice_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invoice #000009"
+            fontPath="fonts/OpenSans-Regular.ttf"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/invoice_number"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/content_description"
+                    android:src="@drawable/profile" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bill_to"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/invoice_date"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/balance"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status"
+                        fontPath="fonts/OpenSans-Regular.ttf"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/bill_to"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:layout_height="wrap_content"
+                    android:text="Wael Abdelrahman"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/invoice_date"
+                    android:text="2/10/2017"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivoice_balance"
+                    android:text="43,000.00 EGP"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/invoice_status"
+                    android:text="Shipped"
+                    fontPath="fonts/OpenSans-Regular.ttf"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

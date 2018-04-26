@@ -2,7 +2,10 @@ package com.paymentsolutions.paymentsolutions;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +31,7 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -71,15 +75,15 @@ public class StoresActivity extends AppCompatActivity {
         );
 
         setSupportActionBar(toolbar);
-        setTitle("Stores");
+        setTitle(getString(R.string.stores));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
         this.getSupportActionBar().setDisplayShowCustomEnabled(true);
         this.getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        LayoutInflater inflator = LayoutInflater.from(this);
-        View v = inflator.inflate(R.layout.titleview, null);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View v = inflater.inflate(R.layout.titleview, null);
 
         ((TextView)v.findViewById(R.id.title)).setText(this.getTitle());
 
@@ -90,7 +94,7 @@ public class StoresActivity extends AppCompatActivity {
         MenuAdapter menuAdapter = new MenuAdapter(menuItems, new MenuAdapter.OnItemClick() {
             @Override
             public void setOnItemClick(int position) {
-
+                startActivity(new Intent(StoresActivity.this,MobilesActivity.class).putExtra("category_id",menuItems.get(position).getId()).putExtra("title",menuItems.get(position).getTitle()));
             }
         });
         int numberOfColumns = 3;
@@ -103,7 +107,7 @@ public class StoresActivity extends AppCompatActivity {
         MenuAdapter menuAdapter1 = new MenuAdapter(menuItems1, new MenuAdapter.OnItemClick() {
             @Override
             public void setOnItemClick(int position) {
-
+                startActivity(new Intent(StoresActivity.this,MobilesActivity.class).putExtra("user_id",menuItems1.get(position).getId()).putExtra("title",menuItems1.get(position).getTitle()));
             }
         });
 
@@ -202,7 +206,7 @@ public class StoresActivity extends AppCompatActivity {
             if (jsonResponse != null && isJSONValid(jsonResponse)) {
                 Log.i("Categories", jsonResponse);
                 if (jsonResponse.contains("false")) {
-                    showSnackBarMessage("Error");
+                    showSnackBarMessage(getString(R.string.error));
                     finish();
                 } else {
                     mParentLayout.setVisibility(View.VISIBLE);
@@ -215,7 +219,7 @@ public class StoresActivity extends AppCompatActivity {
                             JSONObject jsonObject2 = jsonArray.getJSONObject(i);
                             String id = jsonObject2.getString("id");
                             String name = jsonObject2.getString("name");
-                            menuItems.add(new MenuItem(id,name,R.drawable.ic_email_black_24dp));
+                            menuItems.add(new MenuItem(id,"<b>"+name+"</b>",R.drawable.ic_email_black_24dp));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -223,7 +227,7 @@ public class StoresActivity extends AppCompatActivity {
                 }
             } else {
                 finish();
-                showSnackBarMessage("Error.Please Try Again");
+                showSnackBarMessage(getString(R.string.error_try_again));
             }
         }
     }
@@ -311,7 +315,7 @@ public class StoresActivity extends AppCompatActivity {
             if (jsonResponse != null && isJSONValid(jsonResponse)) {
                 Log.i("All Stores", jsonResponse);
                 if (jsonResponse.contains("false")) {
-                    showSnackBarMessage("Error");
+                    showSnackBarMessage(getString(R.string.error));
                     finish();
                 } else {
                     mParentLayout.setVisibility(View.VISIBLE);
@@ -324,7 +328,7 @@ public class StoresActivity extends AppCompatActivity {
                             JSONObject jsonObject2 = jsonArray.getJSONObject(i);
                             String id = jsonObject2.getString("id");
                             String name = jsonObject2.getString("name");
-                            menuItems1.add(new MenuItem(id,name,R.drawable.ic_email_black_24dp));
+                            menuItems1.add(new MenuItem(id,"<b>"+name+"</b>",R.drawable.ic_email_black_24dp));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -332,7 +336,7 @@ public class StoresActivity extends AppCompatActivity {
                 }
             } else {
                 finish();
-                showSnackBarMessage("Error.Please Try Again");
+                showSnackBarMessage(getString(R.string.error_try_again));
             }
         }
     }
@@ -340,6 +344,37 @@ public class StoresActivity extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String lang = preferences.getString("lang", "error");
+        if (lang.equals("error")) {
+            if (Locale.getDefault().getLanguage().equals("ar"))
+                setLocale("ar");
+            else
+                setLocale("en");
+        } else if (lang.equals("en")) {
+            setLocale("en");
+        } else {
+            setLocale("ar");
+        }
+    }
+
+
+    public void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("lang", lang).apply();
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
     }
 
 }

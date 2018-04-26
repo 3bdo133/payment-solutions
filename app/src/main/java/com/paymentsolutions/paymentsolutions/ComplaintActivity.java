@@ -3,9 +3,12 @@ package com.paymentsolutions.paymentsolutions;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +36,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -69,9 +73,9 @@ public class ComplaintActivity extends AppCompatActivity {
                 .build()
         );
 
-        toolbar.setTitle("Complaint");
+        toolbar.setTitle(getString(R.string.complaint));
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Complaint");
+        getSupportActionBar().setTitle(getString(R.string.complaint));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -81,7 +85,7 @@ public class ComplaintActivity extends AppCompatActivity {
         LayoutInflater inflator = LayoutInflater.from(this);
         View v = inflator.inflate(R.layout.titleview, null);
 
-        ((TextView)v.findViewById(R.id.title)).setText("Complaint");
+        ((TextView)v.findViewById(R.id.title)).setText(getString(R.string.complaint));
 
         this.getSupportActionBar().setCustomView(v);
 
@@ -92,14 +96,14 @@ public class ComplaintActivity extends AppCompatActivity {
             public void onClick(View view) {
                 complaintText = mComplaintText.getText().toString().trim();
                 if (!validateFields(complaintText)) {
-                    showSnackBarMessage("Enter your Complaint");
+                    showSnackBarMessage(getString(R.string.enter_complaint));
                 } else {
                     ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                     if (networkInfo != null && networkInfo.isConnected()) {
                         new ComplaintAsyncTask().execute(ContractClass.SEND_COMPLAIN_URL);
                     } else {
-                        showSnackBarMessage("No internet connection");
+                        showSnackBarMessage(getString(R.string.no_internet));
                     }
                 }
             }
@@ -192,7 +196,7 @@ public class ComplaintActivity extends AppCompatActivity {
             if (jsonResponse != null && isJSONValid(jsonResponse)) {
                 Log.i("Complaint",jsonResponse);
                 if (jsonResponse.contains("false")) {
-                    showSnackBarMessage("Error in Sending Complaint");
+                    showSnackBarMessage(getString(R.string.error_complaint));
                     mParentLayout.setVisibility(View.VISIBLE);
                     mProgressIndicator.setVisibility(View.INVISIBLE);
                 } else {
@@ -204,7 +208,7 @@ public class ComplaintActivity extends AppCompatActivity {
             } else {
                 mParentLayout.setVisibility(View.VISIBLE);
                 mProgressIndicator.setVisibility(View.INVISIBLE);
-                showSnackBarMessage("Error.Try Again");
+                showSnackBarMessage(getString(R.string.error_try_again));
             }
         }
 
@@ -245,6 +249,37 @@ public class ComplaintActivity extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String lang = preferences.getString("lang", "error");
+        if (lang.equals("error")) {
+            if (Locale.getDefault().getLanguage().equals("ar"))
+                setLocale("ar");
+            else
+                setLocale("en");
+        } else if (lang.equals("en")) {
+            setLocale("en");
+        } else {
+            setLocale("ar");
+        }
+    }
+
+
+    public void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("lang", lang).apply();
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
     }
 
 }

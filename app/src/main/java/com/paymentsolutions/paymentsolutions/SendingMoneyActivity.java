@@ -3,9 +3,12 @@ package com.paymentsolutions.paymentsolutions;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +40,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -92,9 +96,9 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
                 .build()
         );
 
-        toolbar.setTitle("Sending Money");
+        toolbar.setTitle(getString(R.string.sending_money));
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Sending Money");
+        getSupportActionBar().setTitle(getString(R.string.sending_money));
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mButton100.setOnClickListener(this);
@@ -108,7 +112,7 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
         LayoutInflater inflator = LayoutInflater.from(this);
         View v = inflator.inflate(R.layout.titleview, null);
 
-        ((TextView)v.findViewById(R.id.title)).setText("Sending Money");
+        ((TextView)v.findViewById(R.id.title)).setText(getString(R.string.sending_money));
 
         this.getSupportActionBar().setCustomView(v);
 
@@ -121,14 +125,14 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
                 phoneState = false;
                 if (!b) {
                     if (!validateMobile(sendToNumber)) {
-                        showSnackBarMessage("Mobile Number should not be empty and contain 11 number");
+                        showSnackBarMessage(getString(R.string.mobile_valid));
                     } else {
                         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                         if (networkInfo != null && networkInfo.isConnected()) {
                             new SendToAsyncTask().execute(ContractClass.CHECK_USER_URL);
                         } else {
-                            showSnackBarMessage("No internet connection");
+                            showSnackBarMessage(getString(R.string.no_internet));
                         }
                     }
                 }
@@ -141,18 +145,18 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
             public void onClick(View view) {
                 amount = mAmount.getText().toString().trim();
                 if (!validateFields(amount) && !phoneState) {
-                    showSnackBarMessage("Enter Valid Details");
+                    showSnackBarMessage(getString(R.string.valid_details));
                 } else if (!validateFields(amount)) {
-                    showSnackBarMessage("Enter Amount");
+                    showSnackBarMessage(getString(R.string.enter_amount));
                 } else if (!phoneState) {
-                    showSnackBarMessage("Check send to number");
+                    showSnackBarMessage(getString(R.string.check_send_number));
                 } else {
                     ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                     if (networkInfo != null && networkInfo.isConnected()) {
                         new SendMoneyAsyncTask().execute(ContractClass.SEND_MONEY_URL);
                     } else {
-                        showSnackBarMessage("No internet connection");
+                        showSnackBarMessage(getString(R.string.no_internet));
                     }
                 }
             }
@@ -271,7 +275,7 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
                 Log.i("Send Money", jsonResponse);
                 if (jsonResponse.contains("false")) {
                     mPhoneState.setImageResource(R.drawable.ic_clear_black_24dp);
-                    showSnackBarMessage("Mobile Number isn't exist");
+                    showSnackBarMessage(getString(R.string.mobile_not_exist));
                 } else {
                     mPhoneState.setImageResource(R.drawable.ic_check_black_24dp);
                     phoneState = true;
@@ -286,7 +290,7 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
                 }
             } else {
                 mPhoneState.setImageResource(R.drawable.ic_clear_black_24dp);
-                showSnackBarMessage("Error.Try Again");
+                showSnackBarMessage(getString(R.string.error_try_again));
             }
         }
 
@@ -386,7 +390,7 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
                 if (jsonResponse.contains("false")) {
                     mParentLayout.setVisibility(View.VISIBLE);
                     mProgressIndicator.setVisibility(View.INVISIBLE);
-                    showSnackBarMessage("Error in Sending Money");
+                    showSnackBarMessage(getString(R.string.error_money));
                 } else {
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("case", "done");
@@ -396,7 +400,7 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
             } else {
                 mParentLayout.setVisibility(View.VISIBLE);
                 mProgressIndicator.setVisibility(View.INVISIBLE);
-                showSnackBarMessage("Error.Try Again");
+                showSnackBarMessage(getString(R.string.error_try_again));
             }
         }
 
@@ -457,6 +461,37 @@ public class SendingMoneyActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String lang = preferences.getString("lang", "error");
+        if (lang.equals("error")) {
+            if (Locale.getDefault().getLanguage().equals("ar"))
+                setLocale("ar");
+            else
+                setLocale("en");
+        } else if (lang.equals("en")) {
+            setLocale("en");
+        } else {
+            setLocale("ar");
+        }
+    }
+
+
+    public void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("lang", lang).apply();
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
     }
 
 

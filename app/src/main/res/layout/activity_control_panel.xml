@@ -1,0 +1,316 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5"
+    tools:ignore="MissingPrefix">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F5F5F5"
+        tools:ignore="MissingPrefix">
+
+
+        <ProgressBar
+            android:id="@+id/progress_indicator"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:background="#F5F5F5"
+            android:orientation="vertical">
+
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/custom2">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/custom" />
+            </android.support.design.widget.AppBarLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/balance"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1,000,000.02"
+                            android:id="@+id/balance"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/more_info"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_invoices"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1,000"
+                            android:id="@+id/invoice"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/more_info"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_deposits"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1,000,000"
+                            android:id="@+id/deposits"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/more_info"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_transfers"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5,000"
+                            android:id="@+id/transfers"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/more_info"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    fontPath="fonts/OpenSans-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/withdraw"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="#FFFFFF">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Bold.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5,000"
+                            android:id="@+id/withdraws"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            fontPath="fonts/OpenSans-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/more_info"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

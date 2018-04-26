@@ -29,7 +29,8 @@
                     android:textAlignment="center"
                     android:id="@+id/balance"
                     android:layout_gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center"
+                    android:textColor="#464E7A"
                     android:textSize="15sp" />
         </android.support.v7.widget.Toolbar>
 
